@@ -1,0 +1,136 @@
+\documentclass{article}
+\usepackage{tabularx}
+\usepackage{setspace}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{xcolor}
+\usepackage{amssymb}
+\usepackage[margin=1in]{geometry}
+\usepackage{xepersian}
+\settextfont{Yas}
+% Fixture for Xepersian 23 bug of setting persian math digit fonts
+\ExplSyntaxOn \cs_set_eq:NN \etex_iffontchar:D \tex_iffontchar:D \ExplSyntaxOff
+\setmathdigitfont{Yas}
+\onehalfspacing
+\renewcommand{\labelenumii}{\alph{enumii})}
+\begin{document}
+	\begin{center}
+		\Huge
+		مبانی نظریه محاسبه
+	\end{center}
+	\Large
+	\begin{tabularx}{\linewidth}{>{\raggedleft\arraybackslash}X>{\raggedright\arraybackslash}X}
+		پاسخ کوییز اول
+		&
+		نمره کل: 9 نمره
+	\end{tabularx}
+	\rule{\textwidth}{1pt}
+	\begin{enumerate}
+		\item 
+		یک مسئله مثال بزنید و سپس یک زبان را روی آن مسئله شرح دهید.
+		\textcolor{cyan}{
+		(3 نمره)
+		}
+	\footnote{
+معرفی مسئله، ورودی و خروجی آن یک نمره، مشخص کردن زبان مسئله یک نمره و مشخص کردن الفبای زبان نیز یک نمره دارد.	
+}
+		\\
+		\textbf{پاسخ:}
+		یک مسئله تصمیم گیری 
+		\LTRfootnote{Decision problem}
+		مثال می‌زنیم. فرض کنید بخواهیم با ورودی گرفتن دو عدد طبیعی $n$ و $k$، مشخص کنیم $n$ بر $k$ بخش پذیر است یا خیر. مسئله پارامتر ثابت ندارد و ورودی آن دو عدد $n$ و $k$ و خروجی آن 
+		\lr{YES}
+		یا
+		\lr{NO}
+		است. زبان این مسئله را می‌توان به صورت زیر توصیف کرد:
+		$$L = \{\langle n,k\rangle  :  n,k \in \mathbb{N}, k \mid n\}$$
+		منظور از 
+		$\langle n,k\rangle$
+		نوعی کد کردن 
+		\LTRfootnote{Encoding}
+		دو عدد طبیعی با یک الفبا است. به عنوان مثال یک نوع کد کردن می‌تواند به کمک الفبای 
+		$\Sigma = \{a, \#\}$
+		باشد؛ یعنی دو عدد طبیعی $n$ و $k$ را به صورت
+		$a^n\#a^k$
+		کد کنیم. در این صورت زبان $L$ به صورت زیر خواهد بود:
+		$$L = \{a^n\#a^k  :  n,k \in \mathbb{N}, k \mid n\}.$$
+		یک نوع دیگر می‌توانست به کمک الفبای
+			$\Sigma = \{0, 1, \#\}$
+			باشد و از نمایش مبنای دو اعداد $n$ و $k$ استفاده کنیم. در فصل ۷ خواهید دید که چگونه این نمایش‌ها برای ورودی دادن به ماشین‌های تورینگ---که مدلی ریاضی برای کامپیوتر در دستتان هستند---استفاده می‌شوند.
+		\item 
+		مسئله معادل اجتماع دو زبان را چگونه توصیف می‌کنید؟ یک مثال بزنید.
+				\textcolor{cyan}{
+			(۱ نمره)
+		}
+				\\
+		\textbf{پاسخ:}
+		مسئله معادل اجتماع دو زبان را می‌توان با قرار دادن کلمه «یا» بین آن دو مسئله توصیف کرد. به عنوان مثال مسئله معادل اجتماع دو زبان
+		$L_1 = \{a^{3k+1} \, | \, k \in \mathbb{N} \}$
+		و
+				$L_2 = \{a^{3k+2} \, | \, k \in \mathbb{N} \}$
+				را می‌توان به این صورت توصیف کرد که با ورودی گرفتن یک عدد طبیعی مانند $n$، مشخص کنیم باقی مانده $n$ بر ۳ برابر ۱ 
+				\textit{یا}
+				۲ است یا خیر.
+		
+		\item 
+		درستی یا نادرستی گزاره‌های زیر را مشخص کنید. برای پاسخ خود دلیل بیاورید؛ در صورت درستی اثبات و در غیر این صورت مثال نقض بیاورید. 
+		\textcolor{cyan}{
+		(هر مورد ۱ نمره و جمعاً ۵ نمره)
+		}
+		\begin{enumerate}
+			\item 
+			برای هر زبان $L$، 
+			$L^*$
+			نامتناهی است.
+			\\
+			\textbf{پاسخ:}
+			\textcolor{red}{نادرست}.
+			اگر
+			$ L = \{\Lambda\} $
+			باشد، 
+			$ L^* = \{\Lambda\} $
+			خواهد بود. اگر
+			$\Lambda \neq x \in L$
+			باشد، گزاره درست خواهد بود.
+			\item 
+			$\Lambda$
+			می‌تواند الفبای یک زبان باشد.
+				\\
+			\textbf{پاسخ:}
+			\textcolor{red}{نادرست}.
+			$\Lambda$
+			رشته به طول صفر است اما الفبا یک مجموعه متناهی است.
+			\item 
+			برای زبان $L$، اگر 
+			$\Lambda \in L^*$
+			باشد، آنگاه
+			$\Lambda \in L$.
+			\\
+						\textbf{پاسخ:}
+			\textcolor{red}{نادرست}. 
+			اگر 
+			$L = \{a\}$
+			باشد، آنگاه
+			$L^* = \{\Lambda, a, aa, aaa, \cdots\}$.
+			\item 
+			هیچ زبانی مانند $L$ وجود ندارد که برای هر $k$ داشته باشیم
+			$$\bigcup_{i = 1}^{k} L^i = \bigcup_{i = 1}^{\infty} L^i.$$
+				\\
+			\textbf{پاسخ:}
+			\textcolor{red}{نادرست}. 
+			زبان‌های
+			$L = \Sigma^*$
+			یا
+			$L = \{\Lambda\}$
+ دارای این ویژگی هستند. 
+			\item 
+			$\{a^*b^*\} = \{a^nb^n \; | \; n \geq 0 \}$.
+				\\
+			\textbf{پاسخ:}
+			\textcolor{red}{نادرست}. 
+			$a^3b^4 \in \{a^*b^*\}$
+			اما 
+			$a^3b^4 \notin \{a^nb^n \; | \; n \geq 0 \}$.
+		\end{enumerate}
+	\end{enumerate}
+\end{document}

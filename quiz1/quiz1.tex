@@ -1,0 +1,68 @@
+\documentclass{article}
+\usepackage{tabularx}
+\usepackage{setspace}
+\usepackage{graphicx}
+\usepackage[margin=1in]{geometry}
+\usepackage{xepersian}
+\settextfont{Yas}
+% Fixture for Xepersian 23 bug of setting persian math digit fonts
+\ExplSyntaxOn \cs_set_eq:NN \etex_iffontchar:D \tex_iffontchar:D \ExplSyntaxOff
+\setmathdigitfont{Yas}
+\onehalfspacing
+\renewcommand{\labelenumii}{\alph{enumii})}
+\begin{document}
+	\begin{center}
+			\Huge
+			مبانی نظریه محاسبه
+			\\
+			\vspace{0.2in}
+			\Large
+			۲۵ بهمن ۱۴۰۰
+	\end{center}
+	\Large
+	\begin{tabularx}{\linewidth}{>{\raggedleft\arraybackslash}X>{\raggedright\arraybackslash}X}
+		کوییز اول
+		&
+	مهلت پاسخگویی: یک ساعت
+	\\
+	\multicolumn{2}{>{\hsize=\dimexpr2\hsize+2\tabcolsep+\arrayrulewidth\relax}X}{
+	نحوه تحویل: سرگروه فایل 
+	\lr{pdf}
+	پاسخ‌نامه را در سامانه کورسز بارگذاری می‌کند. در صورتی که برای پاسخگویی به فقط یکی از سوالات نیاز به زمان بیشتری داشتید، تا ساعت ۲۳:۵۹ سرگروه می‌تواند پاسخ آن سوال را برای استاد ایمیل
+	\LTRfootnote{\large\texttt{f.zare@aut.ac.ir}}
+	 ‌کند.
+	}
+	\end{tabularx}
+	\rule{\textwidth}{1pt}
+	\begin{enumerate}
+		\item 
+		یک مسئله مثال بزنید و سپس یک زبان را روی آن مسئله شرح دهید.
+		\item 
+		مسئله معادل اجتماع دو زبان را چگونه توصیف می‌کنید؟ یک مثال بزنید.
+		\item 
+		درستی یا نادرستی گزاره‌های زیر را مشخص کنید. برای پاسخ خود دلیل بیاورید؛ در صورت درستی اثبات و در غیر این صورت مثال نقض بیاورید.
+		\begin{enumerate}
+			\item 
+			برای هر زبان $L$، 
+			$L^*$
+			نامتناهی است.
+			\item 
+		$\Lambda$
+		می‌تواند الفبای یک زبان باشد.
+		\item 
+		برای زبان $L$، اگر 
+		$\Lambda \in L^*$
+		باشد، آنگاه
+		$\Lambda \in L$.
+		\item 
+		 هیچ زبانی مانند $L$ وجود ندارد که برای هر $k$ داشته باشیم
+		$$\bigcup_{i = 1}^{k} L^i = \bigcup_{i = 1}^{\infty} L^i.$$
+		\item 
+		$\{a^*b^*\} = \{a^nb^n \; | \; n \geq 0 \}$.
+		\end{enumerate}
+	\end{enumerate}
+	\begin{figure}[h]
+		\centering
+		\includegraphics[width=0.4\textwidth]{image}
+	\end{figure}
+\end{document}

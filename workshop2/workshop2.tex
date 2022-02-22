@@ -1,0 +1,145 @@
+\documentclass{article}
+\usepackage{tabularx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{setspace}
+\usepackage{color}
+\usepackage{tikz}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usetikzlibrary{automata}
+\usetikzlibrary{positioning}
+\usetikzlibrary{arrows}
+\tikzset{	node distance=2.5cm, 
+				every state/.style={ 
+					semithick,
+					fill=gray!10},
+				initial text={},     
+				double distance=2pt, 
+				every edge/.style={  
+					draw,
+					->, %>=stealth’,     
+					auto,
+					semithick}
+}
+\let\epsilon\varepsilon
+\usepackage[margin=1in]{geometry}
+\usepackage{xepersian}
+\settextfont{Yas}
+% Fixture for Xepersian 23 bug of setting persian math digit fonts
+\ExplSyntaxOn \cs_set_eq:NN \etex_iffontchar:D \tex_iffontchar:D \ExplSyntaxOff
+\setmathdigitfont{Yas}
+\onehalfspacing
+\renewcommand{\labelenumii}{\alph{enumii})}
+\let\oldlabelenumi=\labelenumi
+\let\oldlabelenumii=\labelenumii
+\newcommand*\circled[1]{
+	\tikz[baseline=(char.base)]{
+		\node[shape=circle,draw,inner sep=-1pt,color=red] (char) {\textcolor{black}{#1}\strut}
+	}\kern-3pt
+}
+% Enumi
+\newcommand{\StartCircledEnumi}{\renewcommand{\labelenumi}{\circled{\oldlabelenumi}}}
+\newcommand{\EndCircledEnumi}{\renewcommand{\labelenumi}{\oldlabelenumi}}
+% Enumii
+\newcommand{\StartCircledEnumii}{\renewcommand{\labelenumii}{\circled{\oldlabelenumii}}}
+\newcommand{\EndCircledEnumii}{\renewcommand{\labelenumii}{\oldlabelenumii}}
+\begin{document}
+	\begin{center}
+		\Huge
+		مبانی نظریه محاسبه
+	\end{center}
+	\Large
+	\begin{tabularx}{\linewidth}{>{\raggedleft\arraybackslash}X}
+		کارگاه دوم
+		\\
+		مبحث: تعریف اتوماتای متناهی، پذیرش زبان اجتماع، اشتراک و تفاضل دو زبان
+		\\
+		
+	\end{tabularx}
+	\rule{\textwidth}{1pt}
+	\large
+	\begin{enumerate}
+		\item 
+		برای هر یک از زبان های زیر یک \lr{FA} طراحی کنید. ($\Sigma = \{a, b\}$)
+		
+	\begin{latin}
+		$L_{1} = \{w \in \Sigma^* \; | \; \text{$\lvert w \rvert \geq 4$ and if $w = w_{1}w_{2}\cdots w_{n}$ where $w_i \in \Sigma$ then $w_1 = w_2 = w_3$ but $w_1 \neq w_n$}\}$
+		
+		$L_{2} = \{w \in \Sigma^* \; | \; \text{$n_a(w) =  n_b(w)$ and for every prefix $x$ of $w$, $0 \leq n_a(x) - n_b(x) \leq 2$}\}$
+	\end{latin}
+
+			\item 
+			اتوماتاهای متناهی $ M_1 $ در شکل \ref{M1} و $ M_2 $ در شکل \ref{M2} به ترتیب زبان های $L_1$  و $L_2$ را پذیرش
+				\LTRfootnote{Accept}
+			 می‌کنند. برای هر یک از زبان های زیر اتوماتای پذیرنده آن را رسم کنید.
+			 
+			
+			
+		\begin{enumerate}
+			 	\item 
+			 		$L_1 \cap L_2$
+			 	\item 
+			 		$L_1 \cup L_2$
+			 	\item
+			 		$L_1 - L_2$
+			 \end{enumerate}
+
+		 \begin{figure}[h]
+		 	\begin{minipage}{0.5\textwidth}
+		 	\centering
+			\begin{tikzpicture}
+				\node[state, initial] (A) {$A$};
+				\node[state, right of=A] (B) {$B$};
+				\node[state, , accepting, right of=B] (C) {$C$};
+				\draw (A) edge[loop above] node {\tt b} (A);
+				\draw (B) edge[loop above] node {\tt a} (B);
+				\draw (A) edge node {\tt a} (B);
+				\draw (B) edge[bend left] node {\tt b} (C);
+				\draw (C) edge[bend left] node [above] {\tt a} (B);
+				\draw (C) edge[bend left = 40, below] node {\tt b} (A);
+			\end{tikzpicture}
+			\caption{$M_1$}
+			\label{M1}
+		 	\end{minipage}%
+		 	\begin{minipage}{0.5\textwidth}
+		 		\centering
+	 		\begin{tikzpicture}
+				\node[state, initial] (X) {$X$};
+				\node[state, right of=X] (Y) {$Y$};
+				\node[state, , accepting, right of=Y] (Z) {$Z$};
+				\draw (X) edge[loop above] node {\tt a} (X);
+				\draw (Z) edge[loop above] node {\tt a,b} (Z);
+				\draw (Y) edge node {\tt b} (Z);
+				\draw (X) edge[bend left] node {\tt b} (Y);
+				\draw (Y) edge[bend left] node [above] {\tt a} (X);
+			\end{tikzpicture}	
+			 \caption{$M_2$}
+			\label{M2}	 		
+		 	\end{minipage}
+	 	\end{figure}
+	 
+	 
+		 	\item 
+		 	درستی یا نادرستی هر یک از گزاره‌های زیر را مشخص کنید. در صورت درستی، اثبات و در غیر این صورت مثال نقض ارائه کنید.
+		 	\lr{($\Sigma = \{a, b\}$)}
+		 \begin{enumerate}
+		 			\item 
+		 			اگر  $ L_1 \subseteq L_2 $	، و $L_1 $  توسط  هیچ اتوماتی متناهی ای پذیرفته نشود، آنگاه $L_2 $  نیز توسط هیچ \lr{FA} ای پذیرفته نمی شود.
+		 			\item 
+		 			اگر  $ L_1 \subseteq L_2 $	، و $L_2 $  توسط  هیچ اتوماتی متناهی ای پذیرفته نشود، آنگاه $L_1 $  نیز توسط هیچ \lr{FA} ای پذیرفته نمی شود.
+		 			\item 
+		 			اگر $L_1 $ و $L_2 $ توسط هیچ \lr{FA} ای پذیرفته نشوند، آنگاه $ L_1 \cup L_2 $ نیز توسط هیچ \lr{FA} ای پذیرفته نمی شود.
+		 			\item 
+		 			اگر $L_1 $ و $L_2 $ توسط هیچ \lr{FA} ای پذیرفته نشوند، آنگاه $ L_1 \cap L_2 $ نیز توسط هیچ \lr{FA} ای پذیرفته نمی شود.
+		 			\item 
+		 			اگر $L $ توسط هیچ \lr{FA} ای پذیرفته نشود، آنگاه $ L ^ \prime $ نیز توسط هیچ \lr{FA} ای پذیرفته نمی شود.
+		 			
+		 			
+		 		
+		 		\end{enumerate}
+	
+	\end{enumerate}
+	
+	
+\end{document}

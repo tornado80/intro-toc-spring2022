@@ -1,0 +1,80 @@
+\documentclass{article}
+\usepackage{tabularx}
+\usepackage{setspace}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage[margin=0.7in]{geometry}
+\usepackage{xepersian}
+\settextfont{Yas}
+% Fixture for Xepersian 23 bug of setting persian math digit fonts
+\ExplSyntaxOn \cs_set_eq:NN \etex_iffontchar:D \tex_iffontchar:D \ExplSyntaxOff
+\setmathdigitfont{Yas}
+\setlatintextfont{Yas}
+\onehalfspacing
+\renewcommand{\labelenumii}{\alph{enumii})}
+\begin{document}
+	\begin{center}
+		\Huge
+		مبانی نظریه محاسبه
+		\\
+		\vspace{0.2in}
+		\Large
+		۲ اسفند ۱۴۰۰
+	\end{center}
+	\Large
+	\begin{tabularx}{\linewidth}{>{\raggedleft\arraybackslash}X>{\raggedright\arraybackslash}X}
+		کوییز دوم
+		&
+		مهلت پاسخگویی: یک ساعت
+		\\
+		\multicolumn{2}{>{\hsize=\dimexpr2\hsize+2\tabcolsep+\arrayrulewidth\relax}X}{
+			نحوه تحویل: سرگروه فایل 
+			\lr{pdf}
+			پاسخ‌نامه را در سامانه کورسز بارگذاری می‌کند. در صورتی که برای پاسخگویی به فقط یکی از سوالات نیاز به زمان بیشتری داشتید، تا ساعت ۲۳:۵۹ سرگروه می‌تواند پاسخ آن سوال را برای استاد ایمیل
+			\LTRfootnote{\texttt{f.zare@aut.ac.ir}}
+			‌کند.
+		}
+	\end{tabularx}
+	\rule{\textwidth}{1pt}
+		برای هر یک از زبان‌های زیر اتوماتای متناهی قطعی 
+		\LTRfootnote{Deterministic Finite Automaton (DFA)}
+		ارائه دهید. برای هر حالت 
+		\LTRfootnote{State}
+		اتوماتا توضیحاتی ارائه دهید که هدف تعریف آن چیست.
+		\begin{flushleft}
+			
+			$L_1 = \{w \in \{0,1\}^* \, | \, n_{01}(w) = n_{10}(w)\}$
+	\end{flushleft}	
+			دقت کنید
+			$101 \in L_1$
+			ولی
+			$10010 \notin L_1$. 
+			این دو کلمه را روی مدل خود 
+			\lr{trace}
+			کنید. 
+
+\begin{flushleft}
+	$L_2 = \{w \in \{0,1\}^* \, | \, \text{\lr{adjacent to each character 0 in $w$ is 0}} \}$
+\end{flushleft}
+ترجمه: مجاور هر صفری در $w$، صفر وجود دارد.
+
+\begin{flushleft}
+	$L_3 = \{w \in \{0,1\}^* \, | \, \text{\lr{there are exactly three 1s between every two consequent 0s in $w$}}\}$
+\end{flushleft}
+ترجمه: بین هر صفر و اولین صفر بعد از آن در $w$، دقیقاً ۳ حرف یک قرار دارد. به عنوان مثال
+$011101110 \in L_3$
+ولی 
+$01101110 \notin L_3$.
+
+\begin{flushleft}
+	$L_4 = \{w \in \{0,1\}^* \, | \, \text{\lr{there are odd number of 0s in $w$ or 010 is a substring of $w$}}\}$
+\end{flushleft}
+ترجمه: $w$ شامل تعداد فردی صفر است یا(منطقی) $w$ شامل زیر رشته $ 010 $ است.
+
+
+	\begin{figure}[h]
+		\centering
+		\includegraphics[width=0.3\textwidth]{image}
+	\end{figure}
+\end{document}

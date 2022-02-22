@@ -1,0 +1,208 @@
+\documentclass{article}
+\usepackage{tabularx}
+\usepackage{amsmath}
+\usepackage{setspace}
+\usepackage{color}
+\usepackage{tikz}
+\usepackage{graphicx}
+\usepackage[margin=1in]{geometry}
+\usepackage{xepersian}
+\settextfont{Yas}
+% Fixture for Xepersian 23 bug of setting persian math digit fonts
+\ExplSyntaxOn \cs_set_eq:NN \etex_iffontchar:D \tex_iffontchar:D \ExplSyntaxOff
+\setmathdigitfont{Yas}
+\onehalfspacing
+\renewcommand{\labelenumii}{\alph{enumii})}
+\let\oldlabelenumi=\labelenumi
+\let\oldlabelenumii=\labelenumii
+\newcommand*\circled[1]{
+	\tikz[baseline=(char.base)]{
+		\node[shape=circle,draw,inner sep=-1pt,color=red] (char) {\textcolor{black}{#1}\strut}
+	}\kern-3pt
+}
+% Enumi
+\newcommand{\StartCircledEnumi}{\renewcommand{\labelenumi}{\circled{\oldlabelenumi}}}
+\newcommand{\EndCircledEnumi}{\renewcommand{\labelenumi}{\oldlabelenumi}}
+% Enumii
+\newcommand{\StartCircledEnumii}{\renewcommand{\labelenumii}{\circled{\oldlabelenumii}}}
+\newcommand{\EndCircledEnumii}{\renewcommand{\labelenumii}{\oldlabelenumii}}
+\begin{document}
+	\begin{center}
+		\Huge
+		مبانی نظریه محاسبه
+	\end{center}
+	\Large
+	\begin{tabularx}{\linewidth}{>{\raggedleft\arraybackslash}X}
+		کارگاه اول
+		\\
+		مبحث: زبان‌ها، تعاریف بازگشتی و استقرای ساختاری
+		\\
+		\textcolor{red}{توجه:}
+		سوالات علامت دار برای تمرین بیشتر شما قرار داده شده‌‌اند. تدریسیار در صورت داشتن فرصت کافی می‌تواند آن‌ها را در کارگاه بررسی کند.
+	\end{tabularx}
+	\rule{\textwidth}{1pt}
+	\begin{enumerate}
+		\item
+		برای هر زبان $L$ اگر داشته باشیم
+		$L^2 \subseteq L$
+		نشان دهید
+		$LL^* \subseteq L$.
+		\item
+		برای هر زبان $L_1$ و $L_2$ نشان دهید
+		$(L_{1}^{*}L_{2}^{*}L_{1}^{*})^* = (L_1 \cup L_2)^*$.
+			\item 
+			برای زبان‌های زیر یک تعریف بازگشتی ارائه دهید و درستی آن را اثبات کنید.
+			\begin{enumerate}
+				\item 
+				$\{a^ib^j \; | \; i \geq j \}$
+				\item 
+				$\{a^ib^j \; | \; i \leq j \leq 2i \}$
+				%\StartCircledEnumii
+				%\item 
+				%\EndCircledEnumii
+				%$\{a^ib^j \; | \; i \leq j \}$
+				%\StartCircledEnumii
+				%\item 
+				%\EndCircledEnumii
+				%$\{a^ib^j \; | \; j \geq 2i\}$
+				%\StartCircledEnumii
+				%\item 
+				%\EndCircledEnumii
+				%$\{a^ib^j \; | \; j \leq 2i\}$
+			\end{enumerate}
+		\item
+		برای زبان معادل هر یک از تعاریف بازگشتی زیر، یک تعریف غیر بازگشتی ارائه دهید و درستی آن را اثبات کنید.
+		
+		\begin{enumerate}
+			\item 
+			$a \in L$
+			و
+			$\forall x \in L :  xb, xba \in L$
+			\item
+			$\Lambda \in L$
+			و
+			$\forall x,y \in L : axb, bxa, xy \in L$
+			\item 
+			$\Lambda \in L$
+			و
+			$\forall x,y \in L :  axby, bxay \in L$
+			\StartCircledEnumii
+			\item 
+			\EndCircledEnumii
+			$\Lambda \in L$
+			و
+			$\forall x \in L : ax, axb \in L$
+			\StartCircledEnumii
+			\item 
+			\EndCircledEnumii
+			$a \in L$
+			و
+			$\forall x \in L :  xb, ax, bx \in L$
+
+			\StartCircledEnumii
+			\item
+			\EndCircledEnumii
+			$\Lambda \in L$
+			و
+			$\forall x \in L : xa, xba \in L$
+
+		\end{enumerate}
+	\item
+فرض کنید 
+$\Sigma = \{a, b\}$
+و
+$x,y \in \Sigma^*$
+و همچنین
+$x,y \neq \Lambda$.
+اگر 
+$xy = yx$
+نشان دهید 
+$z \in \Sigma^* $ 
+و اعداد طبیعی $i$ و $j$ وجود دارند به‌طوری که
+$x = z^i$
+و
+$y = z^j$.	
+
+
+	\item
+	فرض کنید 
+	$L_1, L_2, L_3 \subseteq \Sigma^*$
+	زبان‌هایی روی الفبای $\Sigma$ باشند. برای هر یک از موارد زیر رابطه بین دو زبان داده شده را مشخص کنید. آیا همواره با یک دیگر برابرند؟ در غیر این صورت آیا یکی همواره زیر مجموعه دیگری است؟ برای پاسخ خود دلیل بیاورید؛ یعنی اثبات کنید یا مثال نقض ارائه دهید.
+	\begin{enumerate}
+		\item 
+		$L_1(L_2 \cap L_3)$
+		و
+		$L_1L_2 \cap L_1L_3$
+		\item
+		$L_1^* \cap L_2^*$
+		و
+		$(L_1 \cap L_2)^*$
+		\item
+		$L_1^*L_2^*$
+		و
+		$(L_1L_2)^*$
+		\StartCircledEnumii
+		\item 
+		\EndCircledEnumii
+		$L_1^* \cup L_2^*$
+		و
+		$(L_1 \cup L_2)^*$
+	\end{enumerate}
+
+\StartCircledEnumi
+\item
+\EndCircledEnumi
+فرض کنید 
+$\Sigma = \{a, b\}$.
+زبان 
+$L \subseteq \Sigma^*$
+به صورت زیر تعریف شده است:
+$$a \in L; \; \forall x,y \in L : ax, bxy, xby, xyb \in L$$
+نشان دهید
+$L = \{x \in \Sigma^* \; | \; n_a(x) > n_b(x)\}$.
+
+\StartCircledEnumi
+\item
+\EndCircledEnumi
+فرض کنید
+$L = \{yy \; | \; y \in \{a, b\}^*\}$. 
+آیا دو زبان غیر بدیهی $A$ و $B$ وجود دارند که $L=AB$؟ در صورت وجود مثال بزنید و در غیر این صورت اثبات کنید.
+(زبان $X$ غیر بدیهی است اگر $X \neq L, \{\Lambda\}$.)
+\StartCircledEnumi
+\item
+\EndCircledEnumi
+فرض کنید 
+$L \subseteq \{a, b\}^*$
+زبان تمام رشته‌هایی باشد که شامل زیر رشته $bb$ نباشند و همچنین به $b$ ختم نشوند. زبان متناهی $S$ را پیدا کنید به‌طوری که $L = S^*$. در صورتی که شرط دوم (ختم نشدن به $b$) را برداریم نشان دهید هیچ زبانی (خواه متناهی یا نامتناهی) مانند $S$ وجود ندارد که 
+$L = S^*$.
+\StartCircledEnumi
+\item
+\EndCircledEnumi
+درجه زبان $L$  یا
+$\deg(L)$
+برابر کوچکترین $k$ است که
+$\bigcup\limits_{i = 0}^{k} L^i = L^*$. 
+اگر چنین عددی موجود نباشد تعریف می‌کنیم
+$\deg(L) = -1$.
+\begin{enumerate}
+	\item 
+	زبانی را مثال بزنید که درجه آن $3$ باشد.
+	\item
+	زبان نامتناهی‌ای را مثال بزنید که درجه آن 
+	$-1$
+	باشد.
+	\item
+	نشان دهید
+	$\deg(\{a\}^* \cup \{b\}^*) = -1$.
+	\item
+	نشان دهید برای هر $n$ زبان $L$ وجود دارد که 
+	$\deg(L) = n$.
+	
+\end{enumerate}
+	\end{enumerate}
+\begin{flushleft}
+	موفق باشید.
+\end{flushleft}
+	
+
+\end{document}
