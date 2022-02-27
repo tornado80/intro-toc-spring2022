@@ -44,7 +44,7 @@
 		نمره کل: 25
 	\end{tabularx}
 	\rule{\textwidth}{1pt}
-	\normalsize
+	\large
 	\begin{enumerate}
 		\item 
 		
@@ -173,7 +173,7 @@
 \end{center}
 	
 	\begin{center}
-			\begin{tabularx}{\linewidth}{|c|X|}
+			\begin{tabularx}{\textwidth}{|c|X|}
 			\hline
 			$q_0$ &		
 			همه رشته‌های عضو 
@@ -212,74 +212,73 @@
 		\textcolor{cyan}{
 			(9 نمره)
 		}
-		
-\begin{center}
-			\begin{tikzpicture}
-		\node[state, initial] (q0) {$q_0$};
-		\node[state, accepting, right of = q0] (q1) {$q_1$};
-		\node[state, accepting, right of = q1] (q2) {$q_2$};
-		\node[state, below of =q0] (q3) {$q_3$};
-		\node[state, below of = q1] (q4) {$q_4$};
-		\node[state, accepting, below of = q2] (q5) {$q_5$};
-		\node[state, accepting, right of = q5] (q6) {$q_6$};
-		
-		\draw (q0) edge[loop above] node {\tt 1} (q0);
-		\draw (q0) edge node {\tt 0} (q1);
-		
-		\draw (q1) edge[bend right] node [left] {\tt 0} (q4);
-		\draw (q1) edge node [above] {\tt 1} (q2);
-		
-		\draw (q2) edge node {\tt 0} (q6);
-		\draw (q2) edge node {\tt 1} (q5);
-		
-		\draw (q3) edge node {\tt 1} (q0);
-		\draw (q3) edge[bend right = 30] node [below] {\tt 0} (q6);
-		
-		\draw (q4) edge node [above]{\tt 1} (q3);
-		\draw (q4) edge[bend right] node [right]{\tt 0} (q1);
-		
-		\draw (q5) edge node [above] {\tt 0} (q4);
-		\draw (q5) edge[loop right] node  {\tt 1} (q5);
-		
-		\draw (q6) edge [loop below] node {\tt 0,1} (q6);
-		
-	\end{tikzpicture}
-\end{center}
 	
-\begin{center}
-		\begin{tabularx}{\linewidth}{|c|X|}
-			\hline
-			$q_0$ &		
-			رشته زوج صفر دارد و اگر 
-			$\Lambda$
-			نباشد به حداقل ۲ یک ختم شده است.
-			\\ \hline
-			$q_1$ &								
-			رشته به صفر ختم شده است و فرد صفر دارد.
-			\\ \hline
-			$q_2$ &						
-			رشته به 
-			$\tt 01 $ 
-			ختم شده است و فرد صفر دارد.
-			\\ \hline
-			$q_6$ &				
-			رشته شامل 
-			$\tt 010 $ 
-			است.
-			\\ \hline
-			$q_3$ &				
-			رشته به 
-			$\tt 01 $
-			  ختم شده است و زوج صفر دارد.
-			\\ \hline
-			$q_4$ &
-			رشته به صفر ختم شده است و زوج صفر دارد.
-			\\ \hline
-			$q_5$ &
-			رشته فرد صفر دارد و به حداقل ۲ یک ختم شده است.
-			\\ \hline
+\begin{minipage}{0.5\textwidth}
+	\begin{tabularx}{\linewidth}{|c|X|}
+		\hline
+		$q_0$ &		
+		رشته زوج صفر دارد و اگر 
+		$\Lambda$
+		نباشد به حداقل ۲ یک ختم شده است.
+		\\ \hline
+		$q_1$ &								
+		رشته به صفر ختم شده است و فرد صفر دارد.
+		\\ \hline
+		$q_2$ &						
+		رشته به 
+		$\tt 01 $ 
+		ختم شده است و فرد صفر دارد.
+		\\ \hline
+		$q_6$ &				
+		رشته شامل 
+		$\tt 010 $ 
+		است.
+		\\ \hline
+		$q_3$ &				
+		رشته به 
+		$\tt 01 $
+		ختم شده است و زوج صفر دارد.
+		\\ \hline
+		$q_4$ &
+		رشته به صفر ختم شده است و زوج صفر دارد.
+		\\ \hline
+		$q_5$ &
+		رشته فرد صفر دارد و به حداقل ۲ یک ختم شده است.
+		\\ \hline
 	\end{tabularx}	
-\end{center}	
-		
+\end{minipage}		
+\begin{minipage}{0.5\textwidth}
+			\begin{tikzpicture}
+	\node[state, initial] (q0) {$q_0$};
+	\node[state, accepting, right of = q0] (q1) {$q_1$};
+	\node[state, accepting, right of = q1] (q2) {$q_2$};
+	\node[state, below of =q0] (q3) {$q_3$};
+	\node[state, below of = q1] (q4) {$q_4$};
+	\node[state, accepting, below of = q2] (q5) {$q_5$};
+	\node[state, accepting, below of = q5] (q6) {$q_6$};
+	
+	\draw (q0) edge[loop above] node {\tt 1} (q0);
+	\draw (q0) edge node {\tt 0} (q1);
+	
+	\draw (q1) edge[bend right] node [left] {\tt 0} (q4);
+	\draw (q1) edge node [above] {\tt 1} (q2);
+	
+	\draw (q2) edge[bend left = 40] node {\tt 0} (q6);
+	\draw (q2) edge node {\tt 1} (q5);
+	
+	\draw (q3) edge node {\tt 1} (q0);
+	\draw (q3) edge node [below] {\tt 0} (q6);
+	
+	\draw (q4) edge node [above]{\tt 1} (q3);
+	\draw (q4) edge[bend right] node [right]{\tt 0} (q1);
+	
+	\draw (q5) edge node [above] {\tt 0} (q4);
+	\draw (q5) edge[loop below] node  {\tt 1} (q5);
+	
+	\draw (q6) edge [loop below] node {\tt 0,1} (q6);
+	
+\end{tikzpicture}
+\end{minipage}
+
 	\end{enumerate}
 \end{document}
