@@ -1,0 +1,99 @@
+\documentclass{article}
+\usepackage{tabularx}
+\usepackage{setspace}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage[margin=1in]{geometry}
+\usepackage{xepersian}
+\settextfont{Yas}
+% Fixture for Xepersian 23 bug of setting persian math digit fonts
+\ExplSyntaxOn \cs_set_eq:NN \etex_iffontchar:D \tex_iffontchar:D \ExplSyntaxOff
+\setmathdigitfont{Yas}
+\onehalfspacing
+\renewcommand{\labelenumii}{\alph{enumii})}
+\begin{document}
+	\begin{center}
+		\Huge
+		مبانی نظریه محاسبه
+		\\
+		\vspace{0.2in}
+		\Large
+		8 اسفند ۱۴۰۰
+	\end{center}
+	\Large
+	\begin{tabularx}{\linewidth}{>{\raggedleft\arraybackslash}X>{\raggedright\arraybackslash}X}
+		
+		\textbf{کوییز سوم}
+		
+		&
+		مهلت پاسخگویی:
+		\underline{ 2 ساعت !}
+		\\
+		\multicolumn{2}{>{\hsize=\dimexpr2\hsize+2\tabcolsep+\arrayrulewidth\relax}X}{
+			نحوه تحویل: سرگروه فایل 
+			\lr{pdf}
+			پاسخ‌نامه را در سامانه کورسز بارگذاری می‌کند. در صورتی که برای پاسخگویی به فقط یکی از سوالات نیاز به زمان بیشتری داشتید، تا ساعت ۲۳:۵۹ سرگروه می‌تواند پاسخ آن سوال را برای استاد ایمیل
+			\LTRfootnote{\large\texttt{f.zare@aut.ac.ir}}
+			‌کند.
+		
+			همانطور که درکانال گفته شده برای رسم DFA میتوانید از شبیه ساز آنلاین به
+			آدرس
+				\lr {https://automatonsimulator.com/} 
+				استفاده کنید و عکس از خروجی را در کنار پاسخ خود قرار دهید. ویدیو راهنمای کار با این وبسایت در کانال قرار دارد.
+		دقت کنید برای همه DFA های خود حتما خروجی به صورت
+			\underline{به صورت تکست یا url}
+			را همراه پاسخ نامه ارسال کنید.
+		}
+	\end{tabularx}
+	\\
+	\rule{\textwidth}{1pt}
+	\begin{enumerate}
+		\item 
+		فرض کنید یک DFA دارید که زبان $L$ را می پذیرد؛ که	
+		$\Lambda \in L $
+		 است. حال یک DFA برای زبان 
+		 $ L-\Lambda $
+		  ارائه دهید. (از تعریف ریاضی DFA استفاده کنید).
+		  \\
+		  ثابت کنید فرایندی که انجام دادید و ماشین جدیدی که ساختید صحیح است.
+		\item 
+		فرض کنید $\Sigma = \{a, b \}$
+		.
+		\begin{enumerate}
+			\item 
+			برای هریک از زبان های زیر یک DFA ارائه دهید:
+			
+			\begin{flushleft}
+				$L_1 = \{w \in \{a,b\}^* \, | \, \text{\lr{$w$ contains at least 2 $a$}} \} $
+				\\
+				$L_2 = \{w \in \{a,b\}^* \, | \, \text{\lr{$w$ contains substring $"abb"$}} \} $
+			\end{flushleft}
+		
+			\item 
+			برای زبان های  
+			$L_1 \cap L_2 \text{ , } L_1 \cup L_2 \text{ , } L_1 \triangle L_2$
+			یک DFA ارائه دهید.
+			\item 
+			از تابع 
+			$\delta^*$
+			استفاده کنید و ثابت کنید ورودی $"aabba"$ 
+			توسط ماشین اجتماع پذیرفته می شود.			
+		\end{enumerate}
+	
+
+		\item 
+		فرض کنید یک DFA دارید که زبان دلخواه $L_1 $ را میپذیرد؛
+		 و یک DFA دارید که زبان دلخواه $L_2 $ را میپذیرد؛
+		  حال برای زبان زیر DFA ارائه دهید و ثابت کنید
+		  (به زبان ریاضی ) مدلی که ارائه کردید؛ صحیح است.
+		   (دقت کنید الفبای دو زبان یکسان است، و$\#\ $ در آن نیست.)
+		   	$$L = \{ w_1 \#\ w_2 \, | \, w  \in L_1 \, \land \, w \in L_2 \}$$
+		
+	\end{enumerate}
+	
+	\begin{figure}[h]
+		\centering
+		\includegraphics[width=0.6\textwidth]{image}
+	\end{figure}
+\end{document}
