@@ -122,34 +122,11 @@
 		$$ L =\{ x \in \{ a,b \}^* | \;\, |x| = n \, \land \, n_a(x) = n_b(x)\}  $$
 		کمترین تعداد حالت ها \LTRfootnote{\lr states} در اتوماتای متناهی پذیرنده زبان $L$ چیست؟
 		برای جواب خود دلیل ارائه دهید.
-		 \\
 		
-		\item 
-		برای هر یک از زبان‌های
-		$L \subseteq \{a, b\}^*$
-		نشان دهید اعضای مجموعه 
-		\lr{$\{a^n \; | \; n \geq 0\}$}
-		نسبت به $L$ دو به دو تمییزپذیر\LTRfootnote{pairwise $L$-distinguishable}
-		هستند و نتیجه بگیرید اتوماتای متناهی\LTRfootnote{\lr FA} 
-		برای آنها وجود ندارد.
-		\begin{latin}
-			\begin{enumerate}
-				\item $L = \{ww \; | \;  w \in \{a,b\}^*\}$
-			\item $L = \{a^ib^ja^k \; | \; k >  i + j \}$
-				\CircledEnumii $L = \{a^nba^{2n} \; | \; n \geq 0\}$
-				
-				\CircledEnumii $L = \{a^ib^j \; | \; \text{$j = i$ or $j = 2i$}\}$
-				\CircledEnumii $L = \{a^ib^j \; | \; \text{$j$ is multiple of $i$}\}$
-				\CircledEnumii $L = \{x \in \{a,b\}^* \; | \; n_a(x) < 2n_b(x) \}$
-				\CircledEnumii $L = \{x \in \{a,b\}^* \; | \; \text{no prefix of $x$ has more $b$'s than $a$'s} \}$
-				\CircledEnumii $L = \{a^{n^3} \; | \;  n \geq 1\}$
-				
-			\end{enumerate}
-		\end{latin}
-	\CircledEnumi
-	زبان $L$ روی الفبای $\Sigma$ را «خوب» گوییم اگر عدد صحیح $n$ و $S \subseteq \Sigma^n$ وجود داشته باشند که برای هر $x \in L$ که $|x| \geq n$، 
-	$z \in S$
-وجود داشته باشد که $x = yz$. (هر رشته در زبان $L$ به یکی از اعضای $S$ ختم شود.)
+	\item
+	زبان $L$ روی الفبای $\Sigma$ را «خوب» گوییم هرگاه عدد صحیح $n$ و $S \subseteq \Sigma^n$ وجود داشته باشند که برای هر $|x| \geq n$،
+	$x \in L$
+	اگر و تنها اگر $z \in S$ وجود داشته باشد که $x = yz$. (هر رشته در زبان $L$ به یکی از اعضای $S$ ختم شود.)
 
 		\begin{enumerate}
 		
@@ -161,7 +138,28 @@
 		مثالی از زبان نامتناهی‌ای ارائه دهید که توسط \lr{FA}ای پذیرفته می‌شود اما خوب نباشد.
 		\end{enumerate}	
 		
-	\end{enumerate}
 	
-	
+	\CircledEnumi
+	برای هر یک از زبان‌های
+	$L \subseteq \{a, b\}^*$
+	نشان دهید اعضای مجموعه 
+	\lr{$\{a^n \; | \; n \geq 0\}$}
+	نسبت به $L$ دو به دو تمییزپذیر\LTRfootnote{pairwise $L$-distinguishable}
+	هستند و نتیجه بگیرید اتوماتای متناهی\LTRfootnote{\lr FA} 
+	برای آنها وجود ندارد.
+	\begin{latin}
+		\begin{enumerate}
+			\item $L = \{ww \; | \;  w \in \{a,b\}^*\}$
+			\item $L = \{a^ib^ja^k \; | \; k >  i + j \}$
+			\item $L = \{a^nba^{2n} \; | \; n \geq 0\}$
+			
+			\item $L = \{a^ib^j \; | \; \text{$j = i$ or $j = 2i$}\}$
+			\item $L = \{a^ib^j \; | \; \text{$j$ is multiple of $i$}\}$
+			\item $L = \{x \in \{a,b\}^* \; | \; n_a(x) < 2n_b(x) \}$
+			\item $L = \{x \in \{a,b\}^* \; | \; \text{no prefix of $x$ has more $b$'s than $a$'s} \}$
+			\item $L = \{a^{n^3} \; | \;  n \geq 1\}$
+			
+		\end{enumerate}
+	\end{latin}
+\end{enumerate}
 \end{document}
