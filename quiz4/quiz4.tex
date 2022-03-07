@@ -1,9 +1,10 @@
 \documentclass{article}
 \usepackage{tabularx}
 \usepackage{setspace}
+\usepackage{color}
 \usepackage{amsmath}
 \usepackage{amssymb}
-\usepackage{hyperref}
+\usepackage[hidelinks]{hyperref}
 \usepackage{graphicx}
 \usepackage[margin=0.7in]{geometry}
 \usepackage{xepersian}
@@ -13,13 +14,6 @@
 \setmathdigitfont{Yas}
 \onehalfspacing
 \renewcommand{\labelenumii}{(\alph{enumii})}
-\hypersetup{
-	colorlinks=true,
-	linkcolor=blue,
-	filecolor=blue,
-	citecolor = black,      
-	urlcolor=cyan,
-}
 \begin{document}
 	\begin{center}
 		\Huge
@@ -39,7 +33,7 @@
 	نحوه تحویل: فایل 
 	\lr{pdf}
 	پاسخ‌نامه گروهتان را در سامانه کورسز بارگذاری می‌کند. در صورتی که برای پاسخگویی به فقط یکی از سوالات نیاز به زمان بیشتری داشتید، تا ساعت ۲۳:۵۹ می‌توانید پاسخ آن سوال را در سامانه کورسز بارگذاری کنید. (دقت کنید کورسز به شما ارسال با تاخیر را نشان می‌دهد ولی نمره شما بدون تاخیر برای آن سوال محاسبه می‌شود.) تنها در صورت مشکل در ارسال پاسخ در حین آزمون می‌توانید به آقای زارعی ایمیل
-	\LTRfootnote{\href{mailto:amirabbas.zarei1225@gmail.com}{\texttt{amirabbas.zarei1225@gmail.com}}}
+	\LTRfootnote{\href{mailto:amirabbas.zarei1225@gmail.com}{\textcolor{blue}{\texttt{amirabbas.zarei1225@gmail.com}}}}
 	ارسال کنید. لطفا در پاسخ نامه جواب‌های هر سوال را به درستی شماره گذاری کنید.
 	}
 	\end{tabularx}
@@ -55,9 +49,9 @@
 		\begin{latin}
 			\begin{enumerate}
 				\item 
-				$L_1 = \{wz \; | \; |w|=|z| \wedge w \in (a+b)^* \wedge z \in (b+c)^* \}$
+				$L_1 = \{wz \; | \; |w|=|z| \wedge w \in \{a,b\}^* \wedge z \in \{b,c\}^* \}$
 				\item 
-				$L_2 = \{w \; | \; \text{every $a$ in $w$ is followed by at least one $b$ and at least one c}\}. $
+				$L_2 = \{w \; | \; \text{every $a$ in $w$ is followed by at least one $b$ and at least one $ c $}\}. $
 				
 				\rl{
 		ترجمه: بعد از هر $ a $ در $w$ حداقل یک $ b $ و حداقل یک $ c $ آمده است. به عنوان مثال 
@@ -70,9 +64,7 @@
 		\end{latin}
 
 		\item 
-		فرض کنید $L$ زبانی دلخواه و $ S $ مجموعه‌ای از رشته های دو به دو
-		 \lr{$L$-distinguishable} 
-		نسبت به زبان پذیرفته شده توسط ماشین زیر باشند. $|S|$ حداکثر چقدر است؟ ادعای خود را اثبات کنید. در نهایت مجموعه‌ای از اندازه $|S|$ ارائه دهید که اعضای آن دو به دو \lr{$L$-distinguishable} باشند.
+		فرض کنید $L$ زبان پذیرفته شده توسط ماشین زیر باشد و $ S $ مجموعه‌ای ماکسیموم از رشته‌های دو به دو \lr{$L$-distinguishable} باشند. $|S|$ چقدر است؟ ادعای خود را اثبات کنید. در نهایت مجموعه‌ای از اندازه $|S|$ ارائه دهید که اعضای آن دو به دو \lr{$L$-distinguishable} باشند.
 		\begin{figure}[h]
 			\centering
 			\includegraphics[width=0.6\textwidth]{image2}
