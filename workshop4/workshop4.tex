@@ -1,0 +1,116 @@
+\documentclass{article}
+\usepackage{tabularx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{setspace}
+\usepackage{color}
+\usepackage{tikz}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usetikzlibrary{automata}
+\usetikzlibrary{positioning}
+\usetikzlibrary{arrows}
+\tikzset{	node distance=2.5cm, 
+	every state/.style={ 
+		semithick,
+		fill=gray!10},
+	initial text={},     
+	double distance=2pt, 
+	every edge/.style={  
+		draw,
+		->, %>=stealth’,     
+		auto,
+		semithick}
+}
+\let\epsilon\varepsilon
+\usepackage[margin=1in]{geometry}
+\usepackage{xepersian}
+\settextfont{Yas}
+% Fixture for Xepersian 23 bug of setting persian math digit fonts
+\ExplSyntaxOn \cs_set_eq:NN \etex_iffontchar:D \tex_iffontchar:D \ExplSyntaxOff
+\setmathdigitfont{Yas}
+\onehalfspacing
+\newcommand*\circled[1]{
+	\tikz[baseline=(char.base)]{
+		\node[shape=circle,draw,inner sep=-1pt,color=red] (char) {\textcolor{black}{#1}\strut}
+	}\kern-3pt
+}
+% Setup Enum
+\renewcommand{\labelenumii}{\alph{enumii})}
+\let\oldlabelenumi=\labelenumi
+\let\oldlabelenumii=\labelenumii
+% Enumi
+\newcommand{\StartCircledEnumi}{\renewcommand{\labelenumi}{\circled{\oldlabelenumi}}}
+\newcommand{\EndCircledEnumi}{\renewcommand{\labelenumi}{\oldlabelenumi}}
+% Enumii
+\newcommand{\StartCircledEnumii}{\renewcommand{\labelenumii}{\circled{\oldlabelenumii}}}
+\newcommand{\EndCircledEnumii}{\renewcommand{\labelenumii}{\oldlabelenumii}}
+\newcommand{\CircledEnumi}{\StartCircledEnumi\item\EndCircledEnumi}
+\newcommand{\CircledEnumii}{\StartCircledEnumii\item\EndCircledEnumii}
+\begin{document}
+	\begin{center}
+		\Huge
+		مبانی نظریه محاسبه
+	\end{center}
+	\Large
+	\begin{tabularx}{\linewidth}{>{\raggedleft\arraybackslash}X}
+		کارگاه چهارم
+		\\
+		مبحث: لِم پامپینگ و مسائل تصمیم
+		\\
+		
+	\end{tabularx}
+	\rule{\textwidth}{1pt}
+	\large
+	\begin{enumerate}
+		\item 
+		به کمک لِم پامپینگ نشان دهید برای زبان $ L_1 = \{a^ib^ja^k \; | \; k >  i + j \} $ اتوماتای متناهی قطعی وجود ندارند. همچنین به کمک \lr{$L$-distinguishability} نشان دهید برای زبان $ L_2 = \{ww \; | \;  w \in \{a,b\}^*\} $ اتوماتای متناهی قطعی وجود ندارد.
+		
+		\item 
+	برای هر یک از مسائل تصمیم گیری زیر یک الگوریتم ارائه دهید. 
+	\begin{enumerate}
+		\item 
+		با ورودی گرفتن اتوماتای متناهی قطعی $M$ و رشته $x$ مشخص کنید آیا $x$ پیشوند رشته‌ای در $ L(M) $ است؟
+		\item
+		با ورودی گرفتن اتوماتای متناهی قطعی $M$ و رشته $x$ مشخص کنید آیا $ y \in L(M) $ وجود دارد که $x$ زیررشته‌ی $y$ باشد؟
+		\CircledEnumii
+		با ورودی گرفتن اتوماتای متناهی قطعی $M$ و دو رشته $x$ و $y$ مشخص کنید آیا این دو رشته نسبت به $ L(M)‌ $ تمییز \LTRfootnote{distinguishable} پذیرند؟
+		\CircledEnumii
+		با ورودی گرفتن اتوماتای متناهی قطعی $M$ و رشته $x$ مشخص کنید آیا $ x $ پسوند رشته‌ای در $ L(M) $ است؟
+		\CircledEnumii
+		با ورودی گرفتن دو اتوماتای متناهی $ M_1 $ و $ M_2 $ مشخص کنید آیا $ L(M_1) $ زیر مجموعه $ L(M_2) $ است؟
+		\CircledEnumii
+		با ورودی گرفتن اتوماتای متناهی 
+		$M = (Q, \Sigma, q_0, A, \delta)$
+		 و حالت 
+		 $q \in Q$
+		 مشخص کنید آیا رشته $x$ وجود دارد که $\delta^*(q, x) = q$؟
+		\CircledEnumii
+		با ورودی گرفتن دو اتوماتای متناهی 
+		$ M_1 $
+		و
+		$ M_2 $
+		مشخص کنید آیا برای هر $x \in L(M_1)$، $y \in L(M_2)$ وجود دارد که $x$ پیشوند $y$ باشد؟
+	\end{enumerate}
+		
+	\item
+	زبان
+	$L \subseteq \{a,b\}^*$
+	را پیدا کنید که هیچ \lr{DFA}ای برای آن وجود نداشته باشد ولی $LL$ توسط \lr{DFA}ای پذیرفته شود.
+	\begin{latin}
+		\item
+		Show that for an arbitrary language $A$ which is accepted by a FA, the language $B = \{w \in A \; | \; \text{no prefix of $w$ is member of $A$}\}$ is also accepted by a FA.
+		\CircledEnumi
+		A set $S$ of nonnegative integers is an \textit{arithmetic progression} if for some integers $n$ and $p$, $S = \{n + ip \; | \; i \geq 0\}$. Let $A \subseteq \{a\}^*$ and $T = \{|x| \; | \; x \in A\}$. 
+		\begin{enumerate}
+			\item 
+			Show that if $T$ is an arithmetic progression, then $A$ can be accepted by an FA.
+			\item 
+			Conversely, show that if $A$ can be accepted by an FA, then $T$ is the union of a finite number of arithmetic progressions.
+		\end{enumerate} 
+	\end{latin}
+	
+	
+	
+\end{enumerate}
+\end{document}
