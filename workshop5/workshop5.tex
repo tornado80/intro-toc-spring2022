@@ -1,0 +1,108 @@
+\documentclass{article}
+\usepackage{tabularx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{setspace}
+\usepackage{color}
+\usepackage{tikz}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usetikzlibrary{automata}
+\usetikzlibrary{positioning}
+\usetikzlibrary{arrows}
+\tikzset{	node distance=2.5cm, 
+	every state/.style={ 
+		semithick,
+		fill=gray!10},
+	initial text={},     
+	double distance=2pt, 
+	every edge/.style={  
+		draw,
+		->, %>=stealth’,     
+		auto,
+		semithick}
+}
+\let\epsilon\varepsilon
+\usepackage[margin=1in]{geometry}
+\usepackage{xepersian}
+\settextfont{Yas}
+% Fixture for Xepersian 23 bug of setting persian math digit fonts
+\ExplSyntaxOn \cs_set_eq:NN \etex_iffontchar:D \tex_iffontchar:D \ExplSyntaxOff
+\setmathdigitfont{Yas}
+\onehalfspacing
+\newcommand*\circled[1]{
+	\tikz[baseline=(char.base)]{
+		\node[shape=circle,draw,inner sep=-1pt,color=red] (char) {\textcolor{black}{#1}\strut}
+	}\kern-3pt
+}
+% Setup Enum
+\renewcommand{\labelenumii}{\alph{enumii})}
+\let\oldlabelenumi=\labelenumi
+\let\oldlabelenumii=\labelenumii
+% Enumi
+\newcommand{\StartCircledEnumi}{\renewcommand{\labelenumi}{\circled{\oldlabelenumi}}}
+\newcommand{\EndCircledEnumi}{\renewcommand{\labelenumi}{\oldlabelenumi}}
+% Enumii
+\newcommand{\StartCircledEnumii}{\renewcommand{\labelenumii}{\circled{\oldlabelenumii}}}
+\newcommand{\EndCircledEnumii}{\renewcommand{\labelenumii}{\oldlabelenumii}}
+\newcommand{\CircledEnumi}{\StartCircledEnumi\item\EndCircledEnumi}
+\newcommand{\CircledEnumii}{\StartCircledEnumii\item\EndCircledEnumii}
+\begin{document}
+	\begin{center}
+		\Huge
+		مبانی نظریه محاسبه
+	\end{center}
+	\Large
+	\begin{tabularx}{\linewidth}{>{\raggedleft\arraybackslash}X}
+		کارگاه پنجم
+		\\
+		مبحث: کلاس‌های هم ارزی و مینیمال سازی
+		\\
+		
+	\end{tabularx}
+	\rule{\textwidth}{1pt}
+	\large
+	\begin{enumerate}
+		\item 
+		\lr{DFA}
+		زیر را با الگوریتم مینیمال سازی به یک 
+		\lr{DFA}
+		با کمترین تعداد حالات
+		\LTRfootnote{state}
+		 تبدیل کنید. (ممکن است \lr{DFA} داده شده مینیمال باشد.)
+		 	\begin{figure}[h]
+		 	\centering
+		 	\includegraphics[width=0.7\linewidth]{image}
+		 \end{figure}
+		 \item 
+		 فرض کنید $L \subseteq \Sigma^*$، نشان دهید که اگر 
+		 $[\Lambda]$
+		 فقط شامل 
+		 $\Lambda$
+		 نباشد، $L$ نامتناهی است.
+		 \begin{latin}
+		 	\item 
+		 	For an arbitrary string $x \in \{a,b\}^*$, denote by $\tilde{x}$ the string obtained by replacing all $a$'s by $b$'s and vice versa. For example $\tilde{\Lambda} = \Lambda$ and $\widetilde{(abb)} = baa$.
+		 	\begin{enumerate}
+		 		\item Define $L_1 = \{x\tilde{x} \; | \; x \in \{a,b\}^*\}$. Determine the equivalence classes of $I_{L_1}$.
+		 		\CircledEnumii Define $L_2 = \{xy \; | \; \text{$x \in \{a,b\}^*$ and $y$ is either $x$ or $\tilde{x}$}\}$. Determine the equivalence classes of $I_{L_2}$.
+		 	\end{enumerate}
+		 \end{latin}
+		\item 
+		عبارات منظم زیر را ساده کنید.
+		\begin{enumerate}
+			\item $(a+b)^*a^* + b$ و $\Sigma = \{a,b\}$.
+			\item $\varnothing^* + (bb^*)$ و $\Sigma = \{a,b\}$.
+			\item $r(r^*r+r^*)+r$ 
+			که $r$ یک عبارت منظم دلخواه روی الفبای $\Sigma$ است.
+		\end{enumerate}
+	\item
+	عبارت منظم 
+	$(a+b)^*(aa^*bb^*aa^* + bb^*aa*bb^*)(a+b)^*$
+	مجموعه‌ای از رشته‌های داخل 
+	$\{a,b\}^*$
+	را توصیف می‌کند که هر دو زیررشته‌ی $x$ $y$ را دارند. $x$ و $y$ را مشخص کنید.
+
+	
+\end{enumerate}
+\end{document}
