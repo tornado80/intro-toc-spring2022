@@ -1,0 +1,170 @@
+\documentclass{article}
+\usepackage{tabularx}
+\usepackage{setspace}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage[margin=0.7in]{geometry}
+\usepackage{xepersian}
+\settextfont{Yas}
+% Fixture for Xepersian 23 bug of setting persian math digit fonts
+\ExplSyntaxOn \cs_set_eq:NN \etex_iffontchar:D \tex_iffontchar:D \ExplSyntaxOff
+
+\onehalfspacing
+\renewcommand{\labelenumii}{\alph{enumii})}
+\begin{document}
+	\begin{center}
+		\Huge
+		مبانی نظریه محاسبه
+		\\
+		\vspace{0.2in}
+		\Large
+		19 فروردین ۱۴۰1
+	\end{center}
+	\Large
+	\begin{tabularx}{\linewidth}{>{\raggedleft\arraybackslash}X>{\raggedright\arraybackslash}X}
+		بخش اول مسابقه
+		&
+		مهلت پاسخگویی: ۲۵ دقیقه
+	\end{tabularx}
+	\rule{\textwidth}{1pt}
+	\begin{enumerate}
+		\item 
+		فرض کنید $ L $ زبانی دلخواه روی الفبای $ \Sigma $ باشد.
+		\begin{enumerate}
+			\item 
+			 تابع یک به یک
+			$f:L \rightarrow \{a,b\}^*$
+			ارائه دهید. (۲ نمره)
+			\item 
+			 تابع دوسویی 
+			$g:L \rightarrow \{a,b\}^*$
+			ارائه دهید. (۲ نمره)
+		\end{enumerate}
+		\item
+		برای زبان‌های زیر تعریف بازگشتی ارائه دهید:
+		\begin{enumerate}
+			\item 
+			$ L_1 = \{w \in \{a,b\}^* \:|\:\text{\rl{$ w $ شامل $ k $ حرف متوالی $ a $ نیست.}}\} $.
+			(3 نمره)
+			\item 
+			$ L_2 = \{w \in \{a,b,c\}^* \:|\:\text{\rl{بین هر دو حرف $ a $ از کلمه $ w $ حداقل دو حرف دیگر قرار دارد.}}\} $.
+			(4 نمره) 
+			\item 
+			$ L_3 = \{w \in \{a,b,c\}^* \:|\:\text{\rl{بین هر سه حرف متوالی $ w $ حداقل یک حرف $ a $ وجود دارد.}}\} $.
+			(4 نمره) 
+		\end{enumerate}
+	\end{enumerate}
+\newpage
+	\begin{center}
+		\Huge
+		مبانی نظریه محاسبه
+		\\
+		\vspace{0.2in}
+		\Large
+		19 فروردین ۱۴۰1
+	\end{center}
+	\Large
+	\begin{tabularx}{\linewidth}{>{\raggedleft\arraybackslash}X>{\raggedright\arraybackslash}X}
+		بخش دوم مسابقه
+		&
+		مهلت پاسخگویی: ۳۵ دقیقه
+	\end{tabularx}
+	\rule{\textwidth}{1pt}
+	\begin{enumerate}
+		\item 
+		فرض کنید $L$ زبان اعداد باینری باشد که بر ۶ بخش پذیرند. \lr{DFA}ای برای زبان $L$ طراحی کنید. (2 نمره)
+		\item 
+		ثابت کنید حداکثر
+		$2^kk^{2k+1}$
+		زبان روی الفبای $\Sigma = \{0, 1\}$ وجود دارد که توسط \lr{DFA}ای با $ k $ حالت
+		\LTRfootnote{state}
+		 پذیرفته می‌شود. (1 نمره)
+		\item 
+		یک 
+		\lr{FA}
+		سه نواره شامل یک واحد کنترل و سه هِد است که روی راست‌ترین سمبل هر سه نوار قرار دارند و ‌می‌توانند همزمان به چپ حرکت ‌کنند. ورودی این اتوماتا را می‌توان به صورت سه تایی 
+		$(x,y,z)$
+		نمایش داد که به ترتیب از چپ به راست روی نوار اول، دوم و سوم قرار دارند. طول ورودی‌ها با هم برابر است. (۴ نمره‌)
+		\begin{enumerate}
+			\item 
+			تعریف رسمی (ریاضی) برای این 
+			\lr{FA}
+			ارائه دهید.
+			\item
+			یک 
+			\lr{FA}
+			سه نواره ارائه دهید تا زبان 
+			$L = \{(x,y,z) \:|\: x,y,z \in \{0,1\}^* \wedge 2x+y=z\}$
+			را پذیرش کند. ($x$، $y$ و $z$ اعداد باینری هستند و عملیات جمع، جمع باینری است.)
+		\end{enumerate}
+	 		\item
+	برای دو زبان $L_1 $ و $L_2 $ روی الفبای $\Sigma $، زبان خارج قسمت  $L_1 $ و $L_2 $ را به صورت زیر تعریف می‌کنیم 
+	$$L_1/L_2 = \{x \in \Sigma^* \:|\: \exists y \in L_2 \; (xy \in L_1)\}.$$
+	نشان دهید اگر $L_1$ توسط یک \lr{FA} پذیرفته شود و $L_2$ زبانی دلخواه باشد، $L_1/L_2$ نیز توسط یک \lr{FA} پذیرفته می‌شود. (3 نمره)
+	\end{enumerate}
+
+   	\newpage
+   	\begin{center}
+   		\Huge
+   		مبانی نظریه محاسبه
+   		\\
+   		\vspace{0.2in}
+   		\Large
+   		19 فروردین ۱۴۰1
+   	\end{center}
+   	\Large
+   	\begin{tabularx}{\linewidth}{>{\raggedleft\arraybackslash}X>{\raggedright\arraybackslash}X}
+   		بخش سوم مسابقه
+   		&
+   		مهلت پاسخگویی: 35 دقیقه
+   	\end{tabularx}
+   	\rule{\textwidth}{1pt}
+   	\begin{enumerate}
+   		
+   	
+  
+   	\item
+   با استفاده از لم پامپینگ نشان دهید زبان زیر توسط \lr{FA} پذیرفته نمی‌شود. (1 نمره)
+   $$L = \{a^{n^3} \:|\: n \in \mathbb{N}, n \geq 1\}$$
+   	 
+	 \item
+    فرض کنید $L_1$ و $L_2$ دو زبان دلخواه باشند به طوریکه $L_1L_2$ توسط \lr{FA} پذیرفته می‌شود. آیا لزوما  $L_2L_1$ نیز توسط \lr{FA} پذیرفته می‌شود؟ (3 نمره)
+   	\item
+    ثابت کنید اگر $L$ زبانی دلخواه روی الفبای $\Sigma = \{a\}$ باشد، $L^*$ توسط یک \lr{FA} پذیرفته می‌شود. (6 نمره)
+    	 \\
+    	 \\
+    	\end{enumerate}
+    	    	\newpage
+    	 \begin{center}
+    	 	\Huge
+    	 	مبانی نظریه محاسبه
+    	 	\\
+    	 	\vspace{0.2in}
+    	 	\Large
+    	 	19 فروردین ۱۴۰1
+    	 \end{center}
+    	 \Large
+    	 \begin{tabularx}{\linewidth}{>{\raggedleft\arraybackslash}X>{\raggedright\arraybackslash}X}
+    	 	بخش چهارم مسابقه
+    	 	&
+    	 	مهلت پاسخگویی: 30 دقیقه
+    	 \end{tabularx}
+    	 \rule{\textwidth}{1pt}
+    		\begin{enumerate}
+    			\item 
+    			فرض کنید 
+    		$L = \{x \in \{a,b\}^* \:|\: \exists q \in \mathbb{Z} \; \big(n_b(x) = qn_a(x)\big)\}$.
+    			کلاس هم ارزی تحت رابطه $I_L$ را مشخص کنید. (مشخص کردن کلاس‌های هم ارزی ۱ نمره و اثبات آن ۳ نمره دارد.)
+\item 
+    	 زبان $L \subseteq \{0,1\}^*$ به صورت زیر تعریف شده است:
+    	 $$\Lambda \in L ; \forall x \in L \; (001x, x11 \in L) $$
+    	 \begin{enumerate}
+    	 	\item 
+    	 	یک اتوماتا مینیمال برای زبان $ L $ طراحی کنید و ثابت کنید این اتوماتا مینیمال است. (3 نمره)
+    	 	\item
+    	 	کوچک ترین $ k $ را پیدا کنید به طوری که $L^k = L^*$.
+    	 \end{enumerate}
+	\end{enumerate}
+    
+\end{document}
