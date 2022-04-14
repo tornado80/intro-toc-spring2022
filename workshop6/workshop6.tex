@@ -1,0 +1,54 @@
+\input{../workshop-template.tex}
+\begin{document}	
+	\MakeTitle
+	{ششم}
+	{عبارت‌های منظم و \lr{NFA}}
+	\begin{enumerate}
+		\item 
+		فرض کنید $L$ منظم باشد. نشان دهید زبان
+		$Prefix(L) = \{x \in \Sigma^* \;|\; \exists y \in \Sigma^* \; (xy \in L)  \}$
+		منظم است. 
+		\item 
+		فرض کنید $L$ منظم باشد. به کمک \lr{NFA}، نشان دهید زبان 
+		$Suffix(L) = \{y \in \Sigma^* \;|\; \exists x \in \Sigma^* \; (xy \in L)  \}$
+		منظم است. 
+		\item 
+		نشان دهید برای زبان
+		$a^*b^*a^+$
+		می‌توان \lr{NFA} با دقیقا سه \lr{state} ارائه کرد.
+		\item 
+		برای هر یک از عبارت‌های منظم زیر، کوتاه‌ترین کلمه‌ای که داخل زبان قرار ندارد را مشخص کنید.
+		\begin{enumerate}
+			\item $b^*(ab)^*a^*$
+			\item $(a^* + b^*)(a^* + b^*)(a^* + b^*)$
+			\item $a^*(baa^*)^*b^*$
+			\item $b^*(a+ba)^*b^*$
+		\end{enumerate}
+	
+		\item 
+		برای هر یک از بخش‌های زیر عبارت منظم متناظر با زبان را بدست آورید.
+		\begin{enumerate}
+			\item 
+			زبان همه رشته‌هایی که به $ ab $ ختم نمی‌شوند.
+			\item 
+			زبان همه رشته‌هایی که دارای بیش از یک وقوع $ aa $ نیستند. (دقت کنید که $ aaa $ دارای دو وقوع $ aa $ است.)
+			\item 
+			زبان همه رشته‌هایی که تعداد $ a $ها زوج و تعداد $ b $ها فرد باشد.
+			\item 
+			زبان همه رشته‌هایی که شامل زیررشته $ bbb $ نیستند.
+		\end{enumerate}
+		\item
+		فرض کنید تابع 
+		$h : \Sigma^* \longrightarrow \Sigma^*$
+		همریختی باشد؛ یعنی برای هر $x, y \in \Sigma^*$، $h(xy) = h(x)h(y)$. نشان دهید اگر $L$ منظم باشد، 
+		$h(L)$ 
+		نیز منظم است. در صورت نامنظم بودن $L$، آیا لزوما 
+		$h(L)$
+		نامنظم است؟
+		\begin{latin}
+			\item Let $A$ be any language. Define $DROP(A)$ to be the language containing all strings that can be obtained by removing one symbol from a string in $A$. Thus, $DROP(A) = \{xz \;|\; \text{$xyz \in A$ where $x,z \in \Sigma^*$ and $y \in \Sigma$}\}$. Show that the class of regular languages is closed under the $DROP$ operation. Give both a proof by picture and a more formal proof by construction. (i.e. rigorous definition of machines)
+			
+		\end{latin}
+		
+	\end{enumerate}	
+\end{document}

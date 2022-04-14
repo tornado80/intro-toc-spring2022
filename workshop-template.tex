@@ -1,0 +1,65 @@
+\documentclass{article}
+\usepackage{tabularx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{setspace}
+\usepackage{color}
+\usepackage{tikz}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usetikzlibrary{automata}
+\usetikzlibrary{positioning}
+\usetikzlibrary{arrows}
+\tikzset{	node distance=2.5cm, 
+	every state/.style={ 
+		semithick,
+		fill=gray!10},
+	initial text={},     
+	double distance=2pt, 
+	every edge/.style={  
+		draw,
+		->, %>=stealth’,     
+		auto,
+		semithick}
+}
+\let\epsilon\varepsilon
+\usepackage[margin=1in]{geometry}
+\usepackage{xepersian}
+\settextfont{Yas}
+% Fixture for Xepersian 23 bug of setting persian math digit fonts
+\ExplSyntaxOn \cs_set_eq:NN \etex_iffontchar:D \tex_iffontchar:D \ExplSyntaxOff
+\setmathdigitfont{Yas}
+\onehalfspacing
+\newcommand*\circled[1]{
+	\tikz[baseline=(char.base)]{
+		\node[shape=circle,draw,inner sep=-1pt,color=red] (char) {\textcolor{black}{#1}\strut}
+	}\kern-3pt
+}
+% Setup Enum
+\renewcommand{\labelenumii}{\alph{enumii})}
+\let\oldlabelenumi=\labelenumi
+\let\oldlabelenumii=\labelenumii
+% Enumi
+\newcommand{\StartCircledEnumi}{\renewcommand{\labelenumi}{\circled{\oldlabelenumi}}}
+\newcommand{\EndCircledEnumi}{\renewcommand{\labelenumi}{\oldlabelenumi}}
+% Enumii
+\newcommand{\StartCircledEnumii}{\renewcommand{\labelenumii}{\circled{\oldlabelenumii}}}
+\newcommand{\EndCircledEnumii}{\renewcommand{\labelenumii}{\oldlabelenumii}}
+\newcommand{\CircledEnumi}{\StartCircledEnumi\item\EndCircledEnumi}
+\newcommand{\CircledEnumii}{\StartCircledEnumii\item\EndCircledEnumii}
+\newcommand{\MakeTitle}[2]{
+\begin{center}
+	\Huge
+	مبانی نظریه محاسبه
+\end{center}
+\Large
+\begin{tabularx}{\linewidth}{>{\raggedleft\arraybackslash}X}
+	کارگاه #1
+	\\
+	مبحث: #2
+	\\
+	
+\end{tabularx}
+\rule{\textwidth}{1pt}
+\large
+}
