@@ -1,0 +1,126 @@
+\input{../workshop-template.tex}
+\begin{document}	
+	\MakeTitle
+	{نهم}
+	{\lr{PDA}}
+	\begin{enumerate}
+		\item 
+		درست یا غلط بودن جملات زیر را بررسی کنید.
+		\begin{enumerate}
+			\item 
+			اگر $L$ توسط یک \lr{PDA} پذیرفته شود، نامنظم است.
+			\item 
+			به ازای هر \lr{CFL} که بتوان یک \lr{PDA} غیر قطعی ارائه داد، می‌توان یک معادل قطعی هم ارائه نمود.
+			\item
+			می‌توان هر \lr{PDA} با چند حرف استک را به یک \lr{PDA} با دو حرف استک (غیر از $Z_0$) تبدیل کرد.
+			\item 
+			اگر به ازای یک $k$ ثابت، هیچگاه بیش از $k$ سمبل داخل استک یک \lr{PDA} قرار نگیرد، زبان پذیرش شده توسط آن \lr{PDA} منظم است.
+		\end{enumerate}
+		 
+		\item 
+	زبان زیر را در نظر بگیرید: 
+		$$L = \{w \in \{a, b\}^* \;|\; n_a(w)=n_b(w)+1\}$$
+		\begin{enumerate}
+			\item 
+			برای این زبان یک \lr{PDA} ارائه دهید.
+			\item 
+			با استفاده از \lr{PDA} ارائه شده در قسمت قبل، یک گرامر برای این زبان ارائه دهید.
+			\item 
+			برای این زبان، یک \lr{PDA} با دو \lr{state} ارائه دهید.
+		\end{enumerate}
+	
+		\item 
+		
+		فرض کنید 
+		$L = \{ab(ab)^nb(ba)^n\;|\;n\geq0\}$.
+		یک \lr{PDA} برای زبان $L^*$ رسم کنید.
+		
+		\item 
+		برای زبان‌های زیر \lr{PDA} طراحی کنید.
+		\begin{enumerate}
+			\item $L_1 = \{a^nb^{n+m}c^m \;|\; n \geq 0, \; m \geq1\}$
+			\item $L_2 = \{w \in \Sigma^* \;|\; 2n_a(w) \leq n_b(w)\leq 3n_a(w), \; \Sigma=\{a,b,c\}\}$
+			\item $L_3 = \{a^nx \;|\; n \geq 0, \; x \in \{a,b\}^*, \; |x|\leq n\}$
+		\end{enumerate}
+	
+		\item 
+		برای زبان تمام رشته‌های غیر پالیندروم ($L = \{w \in \{a, b\}^* \; | \; w \neq w^R\}$)، یک \lr{PDA} ارائه دهید.
+		
+		\item 
+		برای زبان $L = \{a^ncb^{2n}\;|\;n\geq 1\}$ یک \lr{PDA} قطعی ارائه دهید.
+			
+			\item 
+			زبان پذیرش شده توسط \lr{PDA} زیر چیست؟
+			\begin{flushleft}
+				$M = (\{q_0,q_1,q_2\},\{a,b\},\{a,b,Z_0\},q_0,Z_0,\{q_2\},\delta)$
+				\\ $\delta(q_0,a,Z_0)=\{(q_1,a),(q_2,\Lambda)\}$
+				\\ $\delta(q_1,b,a)=\{(q_1,b)\}$
+				\\ $\delta(q_1,b,b)=\{(q_1,b)\}$
+				\\ $\delta(q_1,a,b)=\{(q_2,\Lambda)\}$
+			\end{flushleft}
+
+			\item 
+			نشان دهید که یک زبان منظم می‌تواند توسط یک \lr{DPDA} مانند $M$ با تنها دو \lr{state} پذیرفته شود به طوری که $M$ انتقال $\Lambda$ نداشته باشد و هیچ گاه سمبلی از استک آن حذف نشود.
+			
+			\item
+			برای رشته ورودی 
+			$x \in \{a,b\}^*$
+			که
+			$|x|=n$
+			چند حالت برای اجرا روی \lr{PDA} زیر وجود دارد؟
+			\begin{figure}[h]
+				\centering
+				\includegraphics[width=0.9\linewidth]{image1}
+			\end{figure}
+			\item
+			ابتدا برای زبان زیر یک گرامر ارائه دهید و سپس به دو روش \lr{Top Down} و \lr{Bottom Up} گرامر را به \lr{PDA} تبدیل کنید.
+			$$L_1 = \{a^nb^{n+m}c^m \;|\; n \geq 0, \; m \geq1\}$$
+			\CircledEnumi
+			برای زبان $ SimplePal $ که به صورت زیر تعریف میشود، یک \lr{PDA} با دو استیت ارائه دهید.
+$$L = \{xcx^r \;|\; x \in \{a,b\}^*\}$$
+			\CircledEnumi
+نشان دهید اگر $L$ توسط یک \lr{PDA} پذیرش شود که هرگز سمبلی از پشته‌اش خارج نمی‌شود، $L$ منظم است.
+			\CircledEnumi
+			یک \lr{DPDA} برای زبان 
+			$L = \{x \in \{a,b\}^* \;|\; n_a(x)=f(n_b(x))\}$
+			 ارائه دهید به طوری که تابع $f$ به صورت زیر تعریف شده باشد.
+			$$f(n) = \begin{cases}
+				4n+7, & \text{\lr{$n$ is even}} \\
+				4n+13, & \text{\lr{$n$ is odd}}
+			\end{cases} $$ 
+		
+		\CircledEnumi
+		برای زبان 
+		$L = \{a^nb^i \;|\; i=n \vee i=2n\}$
+		 یک \lr{PDA} با یک \lr{state} ارائه دهید. (فرض کنید \lr{PDA} زمانی پذیرش می‌کند که استک خالی باشد.)
+		\\
+		\CircledEnumi
+		برای زبان‌های زیر گرامر مستثل از متن و \lr{PDA} ارائه دهید. مشخص کنید گرامری که ارائه دادید مبهم است یا خیر. مشخص کنید اتوماتایی که ارائه دادید قطعی است یا غیر قطعی. (بیان کاربرد متغیر‌ها و توضیحات استیت‌ها را فراموش کنید.)
+
+		\begin{enumerate}
+			\item 
+			$L_1 = \{x_1\# x_2 \# \dots \# x_n \;|\; \text{\lr{$x_i \in  \{a,b\}^*$ for all $i$ and for some $j$, $x_j$ is palindrome}} \}$
+			\item 
+			$L_2 = \{w \in \{a,b\}^* \; | \; n_a(w) > n_b(w)\}$
+		\end{enumerate}
+
+		\CircledEnumi
+		به روش الگوریتمی برای ماشین زیر، گرامر طراحی کنید.
+		\begin{figure}[h]
+			\centering
+			\includegraphics[width=0.4\linewidth]{image2}
+		\end{figure}
+		\CircledEnumi
+		آیا اضافه کردن شرط دو تا هد خواندنی بر روی مدل های PDA قدرت مدل را بیشتر می‌کند؟ توضیح دهید.
+	
+		\CircledEnumi
+		به نظر شما قدرت \lr{PDA} با دو استک در مقایسه با \lr{PDA} معمولی بیشتر است یا نه؟ (کلاس زبان بزرگتری رو پذیرش می‌کند یا خیر؟) درباره \lr{PDA} با حداقل ۳ استک چه می توان گفت؟
+		\CircledEnumi
+		همچنین قدرت \lr{PDA} با صف \lr{FIFO} (نه استک یا \lr{LIFO}) را با \lr{PDA} معمولی مقایسه کنید.
+		\CircledEnumi
+		نشان دهید زبان
+		 $\{a^nb^m \;|\; n \leq m \leq 2n\}$ 
+		  یک \lr{DCFL} نیست.
+		 
+	\end{enumerate}
+\end{document}
